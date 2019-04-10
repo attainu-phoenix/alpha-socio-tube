@@ -1,60 +1,44 @@
-'use strict';
+"use strict";
 
 // All the require module has added here
-
 var express = require("express");
 var mongo = require("mongodb");
-var bodyparser =require("body-parser");
+var bodyParser = require("body-parser");
 
-//express app has started 
+var landingPage = require("./routes/landingPage");
+var login = require("./routes/login");
+var signUp = require("./routes/signUp");
+var events = require("./routes/events");
+var myVideos = require("./routes/myVideos");
+var newRequests = require("./routes/newRequests");
+var upload = require("./routes/upload");
+var userDashboard = require("./routes/userDashboard");
+var adminDashboard = require("./routes/adminDashboard");
+//express app has started
 var app = express();
 
-
 //setting and configuration has done here
-app.set("view engine","hbs");
-app.use(bodyparser.urlencoded({extended:false}));
+app.set("view engine", "hbs");
+app.use(bodyParser.urlencoded({ extended: false }));
 
+app.get("/", landingPage.landingPage);
 
-app.get("/" , function(request,response){
-    response.render("landingPage.hbs");
-})
+app.get("/events", events.events);
 
-app.get("/events" , function(request,response){
-    response.render("events.hbs");
-})
+app.get("/login", login.login);
 
+app.get("/signUp", signUp.signUp);
 
-app.get("/login" , function(request,response){
-    response.render("login.hbs");
-    // After login ,user can redirect to userDashboard page
-})
+app.get("/userDashboard", userDashboard.userDashboard);
 
-app.get("/signup" , function(request,response){
-    response.render("signup.hbs");
-})
+app.get("/upload", upload.upload);
 
-app.get("/userDashboard" , function(request,response){
-    response.render("userDashboard.hbs");
-})
+app.get("/myVideos", myVideos.myVideos);
 
-app.get("/userDashboard/upload" ,function(request,response){
-    response.render("upload.hbs");
-})
+app.get("/adminDashboard", adminDashboard.adminDashboard);
 
-app.get("/userDashboard/myvideos" ,function(request,response){
-    response.render("myVideos.hbs");
-})
+app.get("/newRequests", newRequests.newRequests);
 
-
-
-
-
-
-
-
-
-
-
-
-
-app.listen(3000);
+app.listen(3000, function(req, res) {
+  console.log("app has been started at port 3000");
+});

@@ -1,0 +1,24 @@
+{
+  "name": "alpha-socio-tube",
+  "version": "1.0.0",
+  "description": "Social awareness vidoes",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/attainu-phoenix/alpha-socio-tube.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/attainu-phoenix/alpha-socio-tube/issues"
+  },
+  "homepage": "https://github.com/attainu-phoenix/alpha-socio-tube#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "handlebars": "^4.1.1"
+  }
+}
