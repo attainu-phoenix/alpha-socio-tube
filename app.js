@@ -10,7 +10,6 @@ var landingPage = require("./routes/landingPage");
 var login = require("./routes/login");
 var signUp = require("./routes/signUp");
 var events = require("./routes/events");
-var eventspost = require("./routes/eventspost");
 var myVideos = require("./routes/myVideos");
 var newRequests = require("./routes/newRequests");
 var upload = require("./routes/upload");
@@ -48,9 +47,6 @@ mongoClient.connect(function(error) {
 app.get("/", landingPage.landingPage);
 
 app.get("/events", events.events);
-
-app.post("/events", eventspost.eventspost);
-
 app.get("/login", login.login);
 
 app.get("/signUp", signUp.signUp);
