@@ -49,7 +49,7 @@ app.get("/", landingPage.landingPage);
 
 app.get("/events", events.events);
 
-app.post("/events" , eventspost.eventspost);
+app.post("/events", eventspost.eventspost);
 
 app.get("/login", login.login);
 

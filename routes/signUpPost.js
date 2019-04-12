@@ -20,7 +20,6 @@ var signUp = function(req, res) {
 
   DB.collection("users").findOne({ email: email }, function(error, found) {
     if (found) {
-      console.log("entered");
       errors.push({ text: "Email already exits" });
       return res.render("signUp.hbs", { errors: errors });
     } else {
