@@ -5,6 +5,7 @@ var express = require("express");
 var mongo = require("mongodb");
 var bodyParser = require("body-parser");
 
+// require get requests
 var landingPage = require("./routes/landingPage");
 var login = require("./routes/login");
 var signUp = require("./routes/signUp");
@@ -14,6 +15,10 @@ var newRequests = require("./routes/newRequests");
 var upload = require("./routes/upload");
 var userDashboard = require("./routes/userDashboard");
 var adminDashboard = require("./routes/adminDashboard");
+
+// require post requests
+var signUpPost = require("./routes/signUpPost");
+var loginPost = require("./routes/loginPost");
 
 //express app has started
 var app = express();
@@ -38,6 +43,7 @@ mongoClient.connect(function(error) {
   }
 });
 
+// get request routes
 app.get("/", landingPage.landingPage);
 
 app.get("/events", events.events);
@@ -55,6 +61,11 @@ app.get("/myVideos", myVideos.myVideos);
 app.get("/adminDashboard", adminDashboard.adminDashboard);
 
 app.get("/newRequests", newRequests.newRequests);
+
+// post request routes
+
+app.post("/signUp", signUpPost.signUp);
+app.post("/login", loginPost.login);
 
 app.listen(3000, function(req, res) {
   console.log("app has been started at port 3000");
