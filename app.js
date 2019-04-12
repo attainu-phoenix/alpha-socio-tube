@@ -14,12 +14,29 @@ var newRequests = require("./routes/newRequests");
 var upload = require("./routes/upload");
 var userDashboard = require("./routes/userDashboard");
 var adminDashboard = require("./routes/adminDashboard");
+
 //express app has started
 var app = express();
 
 //setting and configuration has done here
 app.set("view engine", "hbs");
 app.use(bodyParser.urlencoded({ extended: false }));
+
+let DB;
+
+let mongoClient = new mongo.MongoClient("mongodb://localhost:27017/socioApp", {
+  useNewUrlParser: true
+});
+
+mongoClient.connect(function(error) {
+  if (error) {
+    return console.log("Error connecting to database");
+  } else {
+    console.log("database has been connected");
+    DB = mongoClient.db("socioApp");
+    app.locals.DB = DB;
+  }
+});
 
 app.get("/", landingPage.landingPage);
 
