@@ -6,13 +6,9 @@ var events = function(request, response) {
     DB.collection("events")
      .find({})
      .toArray(function(error, data) {
-       console.log(data);
-       var title = data.title;
-       var content =data.content;
 
        var data = {
-         title : title,
-         content :content
+         data:data
        }
        response.render("events.hbs", data);
      });
