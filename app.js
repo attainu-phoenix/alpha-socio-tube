@@ -15,7 +15,7 @@ var newRequests = require("./routes/newRequests");
 var upload = require("./routes/upload");
 var userDashboard = require("./routes/userDashboard");
 var adminDashboard = require("./routes/adminDashboard");
-var AdminEventget = require("./routes/AdminEventget");
+var AdminEventGet = require("./routes/AdminEventGet");
 
 // require post requests
 var signUpPost = require("./routes/signUpPost");
@@ -29,6 +29,7 @@ var app = express();
 app.set("view engine", "hbs");
 app.use(bodyParser.urlencoded({ extended: false }));
 
+//The mongo connection
 let DB;
 
 let mongoClient = new mongo.MongoClient("mongodb://localhost:27017/socioApp", {
@@ -50,7 +51,7 @@ app.get("/", landingPage.landingPage);
 
 app.get("/events", events.events);
 
-app.get("/AdminDashboard/AdminEventget" ,AdminEventget.AdminEventget);
+app.get("/AdminDashboard/AdminEventGet", AdminEventGet.AdminEventGet);
 
 app.get("/login", login.login);
 
@@ -67,11 +68,11 @@ app.get("/adminDashboard", adminDashboard.adminDashboard);
 app.get("/newRequests", newRequests.newRequests);
 
 // post request routes
-
 app.post("/signUp", signUpPost.signUp);
-app.post("/login", loginPost.login);
-app.post("/AdminEventPost" ,AdminEventPost.AdminEventsPost);
 
+app.post("/login", loginPost.login);
+
+app.post("/AdminEventPost", AdminEventPost.AdminEventsPost);
 
 app.listen(3000, function(req, res) {
   console.log("app has been started at port 3000");
