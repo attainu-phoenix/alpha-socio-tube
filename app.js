@@ -15,10 +15,12 @@ var newRequests = require("./routes/newRequests");
 var upload = require("./routes/upload");
 var userDashboard = require("./routes/userDashboard");
 var adminDashboard = require("./routes/adminDashboard");
+var AdminEventget = require("./routes/AdminEventget");
 
 // require post requests
 var signUpPost = require("./routes/signUpPost");
 var loginPost = require("./routes/loginPost");
+var AdminEventPost = require("./routes/AdminEventPost");
 
 //express app has started
 var app = express();
@@ -47,6 +49,9 @@ mongoClient.connect(function(error) {
 app.get("/", landingPage.landingPage);
 
 app.get("/events", events.events);
+
+app.get("/AdminDashboard/AdminEventget" ,AdminEventget.AdminEventget);
+
 app.get("/login", login.login);
 
 app.get("/signUp", signUp.signUp);
@@ -65,6 +70,8 @@ app.get("/newRequests", newRequests.newRequests);
 
 app.post("/signUp", signUpPost.signUp);
 app.post("/login", loginPost.login);
+app.post("/AdminDashboard/AdminEventPost" ,AdminEventPost.AdminEventsPost);
+
 
 app.listen(3000, function(req, res) {
   console.log("app has been started at port 3000");
