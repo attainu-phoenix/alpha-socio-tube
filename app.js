@@ -15,12 +15,12 @@ var newRequests = require("./routes/newRequests");
 var upload = require("./routes/upload");
 var userDashboard = require("./routes/userDashboard");
 var adminDashboard = require("./routes/adminDashboard");
-var AdminEventGet = require("./routes/AdminEventGet");
+var addEvent = require("./routes/addEvent");
 
 // require post requests
 var signUpPost = require("./routes/signUpPost");
 var loginPost = require("./routes/loginPost");
-var AdminEventPost = require("./routes/AdminEventPost");
+var adminEventPost = require("./routes/adminEventPost");
 
 //express app has started
 var app = express();
@@ -51,7 +51,7 @@ app.get("/", landingPage.landingPage);
 
 app.get("/events", events.events);
 
-app.get("/AdminDashboard/AdminEventGet", AdminEventGet.AdminEventGet);
+app.get("/AdminDashboard/addEvent", addEvent.addEvent);
 
 app.get("/login", login.login);
 
@@ -72,7 +72,7 @@ app.post("/signUp", signUpPost.signUp);
 
 app.post("/login", loginPost.login);
 
-app.post("/AdminEventPost", AdminEventPost.AdminEventsPost);
+app.post("/adminEventPost", adminEventPost.adminEventPost);
 
 app.listen(3000, function(req, res) {
   console.log("app has been started at port 3000");

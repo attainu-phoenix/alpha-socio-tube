@@ -1,25 +1,25 @@
-'use strict';
+"use strict";
 
-var AdminEventsPost = function(request,response){
-    var DB =app.locals.DB = DB;
+var adminEventPost = function(request, response) {
+  var DB = request.app.locals.DB;
 
-    var title = request.body.title;
-    var content = request.body.content;
-    var organizer = request.body.organizer;
-    var Date =request.body.Date;
-      
-    var obj = {
-        title : title,
-        content: content,
-        organizer : organizer,
-        Date : Date
-    }
+  var title = request.body.title;
+  var content = request.body.content;
+  var organizer = request.body.organizer;
+  var Date = request.body.Date;
 
-    DB.collection("events").insertOne( obj ,function(error,obj){
-        console.log("error occured in AdminEventPost");
-    })
+  var obj = {
+    title: title,
+    content: content,
+    organizer: organizer,
+    Date: Date
+  };
 
- return response.render("AdminEventPost.hbs");
-}
+  DB.collection("events").insertOne(obj, function(error, obj) {
+    console.log("error occured in AdminEventPost");
+  });
 
-exports.AdminEventsPost = AdminEventsPost;
+  return response.render("events.hbs");
+};
+
+exports.adminEventPost = adminEventPost;
