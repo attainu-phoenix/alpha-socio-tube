@@ -72,7 +72,7 @@ app.post("/signUp", signUpPost.signUp);
 
 app.post("/login", loginPost.login);
 
-app.post("/adminEventPost", adminEventPost.adminEventPost);
+app.post("/AdminEventPost", adminEventPost.adminEventPost);
 
 app.listen(3000, function(req, res) {
   console.log("app has been started at port 3000");
