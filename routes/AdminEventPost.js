@@ -19,7 +19,7 @@ var AdminEventsPost = function(request,response){
         console.log("error occured in AdminEventPost");
     })
 
- return response.render("AdminDashbaord.hbs");
+ return response.render("AdminEventPost.hbs");
 }
 
 exports.AdminEventsPost = AdminEventsPost;

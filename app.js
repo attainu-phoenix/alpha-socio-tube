@@ -70,7 +70,7 @@ app.get("/newRequests", newRequests.newRequests);
 
 app.post("/signUp", signUpPost.signUp);
 app.post("/login", loginPost.login);
-app.post("/AdminDashboard/AdminEventPost" ,AdminEventPost.AdminEventsPost);
+app.post("/AdminEventPost" ,AdminEventPost.AdminEventsPost);
 
 
 app.listen(3000, function(req, res) {
