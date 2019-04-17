@@ -16,12 +16,14 @@ var upload = require("./routes/upload");
 var userDashboard = require("./routes/userDashboard");
 var adminDashboard = require("./routes/adminDashboard");
 var addEvent = require("./routes/addEvent");
+var Admin = require("./routes/AdminLogin");
 
 // require post requests
 var signUpPost = require("./routes/signUpPost");
 var loginPost = require("./routes/loginPost");
 var adminEventPost = require("./routes/adminEventPost");
 var uploadPost = require("./routes/uploadPost");
+var AdminLoginPost =require("./routes/AdminLoginPost");
 
 //express app has started
 var app = express();
@@ -69,12 +71,17 @@ app.get("/adminDashboard", adminDashboard.adminDashboard);
 
 app.get("/newRequests", newRequests.newRequests);
 
+app.get("/Admin" ,Admin.Admin);
+
+
 // post request routes
 app.post("/signUp", signUpPost.signUp);
 
 app.post("/login", loginPost.login);
 
-app.post("/adminEventPost", adminEventPost.adminEventPost);
+app.post("/AdminEventPost", adminEventPost.adminEventPost);
+
+app.post("/Admin" , AdminLoginPost.Admin );
 
 app.post("/upload", uploadPost.uploadPost);
 
