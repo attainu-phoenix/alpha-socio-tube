@@ -21,6 +21,7 @@ var addEvent = require("./routes/addEvent");
 var signUpPost = require("./routes/signUpPost");
 var loginPost = require("./routes/loginPost");
 var adminEventPost = require("./routes/adminEventPost");
+var uploadPost = require("./routes/uploadPost");
 
 //express app has started
 var app = express();
@@ -28,6 +29,7 @@ var app = express();
 //setting and configuration has done here
 app.set("view engine", "hbs");
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static("public"));
 
 //The mongo connection
 let DB;
@@ -73,6 +75,8 @@ app.post("/signUp", signUpPost.signUp);
 app.post("/login", loginPost.login);
 
 app.post("/adminEventPost", adminEventPost.adminEventPost);
+
+app.post("/upload", uploadPost.uploadPost);
 
 app.listen(3000, function(req, res) {
   console.log("app has been started at port 3000");

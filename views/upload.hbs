@@ -42,28 +42,40 @@
       </nav>
       <div class="row">
         <div class="col-md-6 offset-md-3">
-          <h2 class="text-center">Uplaod your videos below</h2>
+          <h2 class="text-center">Upload your videos below</h2>
           <hr>
-          <form action="" method="">
+          <form action="/upload" method="POST" enctype="multipart/form-data">
+            <div>
+              <label>Write the appropriate title</label>
+              <input class="form-control" id="title" name="title">
+            </div>
 
             <div>
-              <label>Write the appropaite title</label>
-              <input class="form-control" id="title">
+              <label>Write the Description here</label>
+              <textarea class="form-control" rows="5" name="description"></textarea>
             </div>
-            <div>
-              <label>Write the whole content here</label>
-              <textarea class="form-control" rows="5" id="title"></textarea>
-            </div>
+
             <div>
               <label>Your Message </label>
-              <textarea class="form-control" rows="5" id="title"></textarea>
+              <textarea class="form-control" rows="5"
+                name="message"></textarea>
             </div>
-            <p></p>
-            <input id="video_file" name="video_file" type="file">
-            <p></p>
-            <button type="submit" class="btn btn-danger">Submit</button>
+            <div>
+              <input name="image" type="file">
+            </div>
 
+
+            <div>
+              <button type="submit" class="btn btn-success offset-md-5">Upload</button>
+            </div>
           </form>
+          <ul>
+            {{#each images}}
+            <li>
+              <img src="{{this.fileName}}" alt="" height="400px">
+            </li>
+            {{/each}}
+          </ul>
         </div>
       </div>
     </div>
