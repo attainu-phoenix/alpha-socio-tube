@@ -14,6 +14,7 @@ var login = function(req, res) {
       return res.render("login.hbs", { errors: errors });
     } else {
       if (data.password == password) {
+        req.session.data = data;
         return res.render("userDashboard.hbs");
       } else {
         errors.push({ text: "Invalid password" });
