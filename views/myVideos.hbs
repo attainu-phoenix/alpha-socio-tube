@@ -47,171 +47,39 @@
       </nav>
     </div>
     <br />
+      
     <div class="container">
-      <div class="row mt-2">
-        <div class="col-md-6">
-          <iframe
-            width="500"
-            height="300"
-            src="https://www.youtube.com/embed/jLpkW5C8PqE"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope;
-            picture-in-picture"
-            allowfullscreen></iframe>
-          <p>Category</p>
-          <h5>A small step can change many outcomes.</h5>
-          <p>Published: 3 August, 2015</p>
-          <button type="button" class="btn btn-secondary btn-sm">
-            Edit
-          </button>
-          <button type="button" class="btn btn-danger btn-sm">
-            Delete
-          </button>
-        </div>
+      {{#each videoArrayOfTwo}}
+      <div class="row mt-4" style="">
+        {{#each this}}
+        <div class="col-md-4" style="margin-right: 15rem;">
+          <div class="card" style="width: 24rem;margin-right: 154rem;">
+            <iframe width="500" height="300" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope;
+            picture-in-picture" allowfullscreen=""></iframe>
+            <div class="card-body">
+              <h5 class="card-title">{{title}}</h5>
+              <input type="hidden" id="mongoId" value="{{_id}}">
 
-        <div class="col-md-6">
-          <iframe
-            width="500"
-            height="300"
-            src="https://www.youtube.com/embed/YUdOoTLv3kA"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope;
-            picture-in-picture"
-            allowfullscreen></iframe>
-          <p>Category</p>
-          <h5>A small step can change many outcomes.</h5>
-          <p>Published: 3 August, 2015</p>
-          <button type="button" class="btn btn-secondary btn-sm">
-            Edit
-          </button>
-          <button type="button" class="btn btn-danger btn-sm">
-            Delete
-          </button>
+              <p class="card-text"></p>
+              <div class="clearfix">
+                <div class="price">first videofirst videofirst video</div>
+              </div>
+              <span class="containerbtn" style="margin-right: 13rem;">
+              <a href="#" class="btn btn-success" id="button1">Delete</a></span>
+              <a href="#" class="btn btn-success" id="button2">Edit</a>
+            </div>
+          </div>
         </div>
+        {{/each}}
       </div>
-      <div class="row mt-3">
-        <div class="col-md-6">
-          <iframe
-            width="500"
-            height="300"
-            src="https://www.youtube.com/embed/t-AGqhhNBE4"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope;
-            picture-in-picture"
-            allowfullscreen></iframe>
-          <p>Category</p>
-          <h5>A small step can change many outcomes.</h5>
-          <p>Published: 3 August, 2015</p>
-          <button type="button" class="btn btn-secondary btn-sm">
-            Edit
-          </button>
-          <button type="button" class="btn btn-danger btn-sm">
-            Delete
-          </button>
-        </div>
-
-        <div class="col-md-6">
-          <iframe
-            width="500"
-            height="300"
-            src="https://www.youtube.com/embed/1sb68Jrc0q8"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope;
-            picture-in-picture"
-            allowfullscreen></iframe>
-          <p>Category</p>
-          <h5>A small step can change many outcomes.</h5>
-          <p>Published: 3 August, 2015</p>
-          <button type="button" class="btn btn-secondary btn-sm">
-            Edit
-          </button>
-          <button type="button" class="btn btn-danger btn-sm">
-            Delete
-          </button>
-        </div>
-      </div>
-      <div class="row mt-3">
-        <div class="col-md-6">
-          <iframe
-            width="500"
-            height="300"
-            src="https://www.youtube.com/embed/1kUmkq5D-ss"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope;
-            picture-in-picture"
-            allowfullscreen></iframe>
-          <p>Category</p>
-          <h5>A small step can change many outcomes.</h5>
-          <p>Published: 3 August, 2015</p>
-          <button type="button" class="btn btn-secondary btn-sm">
-            Edit
-          </button>
-          <button type="button" class="btn btn-danger btn-sm">
-            Delete
-          </button>
-        </div>
-
-        <div class="col-md-6">
-          <iframe
-            width="500"
-            height="300"
-            src="https://www.youtube.com/embed/zlHx-YIKfsc"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope;
-            picture-in-picture"
-            allowfullscreen></iframe>
-          <p>Category</p>
-          <h5>A small step can change many outcomes.</h5>
-          <p>Published: 3 August, 2015</p>
-          <button type="button" class="btn btn-secondary btn-sm">
-            Edit
-          </button>
-          <button type="button" class="btn btn-danger btn-sm">
-            Delete
-          </button>
-        </div>
-      </div>
-      <div class="row mt-3">
-        <div class="col-md-6">
-          <iframe
-            width="500"
-            height="300"
-            src="https://www.youtube.com/embed/ye0Jua2hIj8"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope;
-            picture-in-picture"
-            allowfullscreen></iframe>
-          <p>Category</p>
-          <h5>A small step can change many outcomes.</h5>
-          <p>Published: 3 August, 2015</p>
-          <button type="button" class="btn btn-secondary btn-sm">
-            Edit
-          </button>
-          <button type="button" class="btn btn-danger btn-sm">
-            Delete
-          </button>
-        </div>
-
-        <div class="col-md-6">
-          <iframe
-            width="500"
-            height="300"
-            src="https://www.youtube.com/embed/Zt52ABQw_cw"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope;
-            picture-in-picture"
-            allowfullscreen></iframe>
-          <p>Category</p>
-          <h5>A small step can change many outcomes.</h5>
-          <p>Published: 3 August, 2015</p>
-          <button type="button" class="btn btn-secondary btn-sm">
-            Edit
-          </button>
-          <button type="button" class="btn btn-danger btn-sm">
-            Delete
-          </button>
-        </div>
-      </div>
+      {{/each}}
     </div>
+
+
+
+        
+          
+
+    <script src="/js/deletepost.js"></script>
   </body>
 </html>
