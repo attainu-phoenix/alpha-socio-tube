@@ -6,10 +6,15 @@ var events = function(request, response) {
   DB.collection("events")
     .find({})
     .toArray(function(error, data) {
-      var data = {
-        data: data
-      };
-      response.render("events.hbs", data);
+      console.log(data);
+      if (error) {
+        return console.log("couldnt get the data");
+      } else {
+        var data = {
+          data: data
+        };
+        return response.render("events.hbs", data);
+      }
     });
 };
 
