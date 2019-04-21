@@ -13,7 +13,9 @@ var landingPage = function(req, res) {
         for (var i = 0; i < data.length; i += 2) {
           videoArrayOfTwo.push(data.slice(i, i + 2));
         }
-       return  res.render("landingPage.hbs", { videoArrayOfTwo: videoArrayOfTwo });
+        return res.render("landingPage.hbs", {
+          videoArrayOfTwo: videoArrayOfTwo
+        });
       }
     });
 };
