@@ -44,22 +44,26 @@
         <div class="col-md-6 offset-md-3">
           <h2 class="text-center">Uplaod the Event Below</h2>
           <hr>
-          <form action="/AdminEventPost" method="POST">
+          <form action="/AdminEventPost" method="POST" enctype="multipart/form-data">
             <div>
               <label>Write the appropaite title</label>
-              <input class="form-control" name="title">
+              <input class="form-control" type="text" name="title">
             </div>
             <div>
               <label>Write the whole content here</label>
-              <textarea class="form-control" rows="5" name="content"></textarea>
+              <textarea class="form-control" rows="5" type="text" name="content"></textarea>
+            </div>
+            <div>
+            <label>Upload the image</label>
+              <input class="form-control" type="file" name="image">
             </div>
             <div>
               <label>Organizer </label>
-              <input class="form-control" rows="5" name="organizer">
+              <input class="form-control" rows="5" type="text" name="organizer">
             </div>
             <div>
               <label>Date </label>
-              <input class="form-control" rows="5" name="Date">
+              <input class="form-control" rows="5" name="Date" type="Date">
             </div>
             <p></p>
             <button type="submit" class="btn btn-danger">Submit</button>

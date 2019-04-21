@@ -4,6 +4,7 @@
 var express = require("express");
 var mongo = require("mongodb");
 var bodyParser = require("body-parser");
+var session = require("express-session");
 
 // require get requests
 var landingPage = require("./routes/landingPage");
@@ -17,6 +18,7 @@ var userDashboard = require("./routes/userDashboard");
 var adminDashboard = require("./routes/adminDashboard");
 var addEvent = require("./routes/addEvent");
 var Admin = require("./routes/AdminLogin");
+var logout = require("./routes/logout");
 
 // require post requests
 var signUpPost = require("./routes/signUpPost");
@@ -27,6 +29,7 @@ var AdminLoginPost =require("./routes/AdminLoginPost");
 
 //express app has started
 var app = express();
+app.use(session({secret: "catkey" }));
 
 //setting and configuration has done here
 app.set("view engine", "hbs");
@@ -72,6 +75,8 @@ app.get("/adminDashboard", adminDashboard.adminDashboard);
 app.get("/newRequests", newRequests.newRequests);
 
 app.get("/Admin" ,Admin.Admin);
+
+app.get("/logout",logout.logout );
 
 
 // post request routes

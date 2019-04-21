@@ -49,9 +49,11 @@
           <hr>
           {{#each data}}
           <div class="card">
-            <div  class="card-header" name="title">{{title}}</div>
-            <div  class="card-body" name="content" >{{content}}</div>
-            <div class="card-footer">Organised by :{{organizer}} <br>Date:{{date}}</div>
+            <div  class="card-header" name="title">{{this.title}}</div>
+            <div><img class="card-img" src="{{this.filename}}" alt="Card image cap"></div>
+            <div  class="card-body" name="content" >{{this.content}}</div>
+            <div class="card-footer">Organised by :{{this.organizer}} <br>Date:{{this.
+            date}}</div>
           </div>
           <p></p>
           {{/each}}
