@@ -34,7 +34,7 @@
               <a class="nav-link" href="/events">Event</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/">Logout</a>
+              <a class="nav-link" href="/logout">Logout</a>
             </li>
 
           </ul>
@@ -44,17 +44,19 @@
         <div class="col-md-6 offset-md-3">
           <h2 class="text-center">Uplaod the Event Below</h2>
           <hr>
-          <form action="/AdminEventPost" method="POST" enctype="multipart/form-data">
+          <form action="/AdminEventPost" method="POST"
+            enctype="multipart/form-data">
             <div>
               <label>Write the appropaite title</label>
               <input class="form-control" type="text" name="title">
             </div>
             <div>
               <label>Write the whole content here</label>
-              <textarea class="form-control" rows="5" type="text" name="content"></textarea>
+              <textarea class="form-control" rows="5" type="text"
+                name="content"></textarea>
             </div>
             <div>
-            <label>Upload the image</label>
+              <label>Upload the image</label>
               <input class="form-control" type="file" name="image">
             </div>
             <div>

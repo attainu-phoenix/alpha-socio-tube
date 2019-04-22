@@ -1,6 +1,10 @@
 "use strict";
 
 var myVideos = function(req, res) {
-  res.render("myVideos.hbs");
+  if (!req.session.data) {
+    return res.redirect("/login");
+  } else {
+    res.render("myVideos.hbs");
+  }
 };
 exports.myVideos = myVideos;
