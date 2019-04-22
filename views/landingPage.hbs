@@ -11,6 +11,7 @@
       crossorigin="anonymous"
       />
     <title>Home | dashboard</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
     <div class="container">
@@ -47,14 +48,15 @@
     
     <div class="container">
       {{#each videoArrayOfTwo}}
-<<<<<<< HEAD
-      <div class="row mt-4" style="margin-right:22rem;">
+      <div class="row mt-4" style="margin-right:rem;">
         {{#each this}}
         <div class="col-md-4">
-          <div class="card" style="width: 24rem;">
-            <iframe
-            width="500"
-            height="300"
+           
+          <div class="card" id="frame1" style="width: 24rem;">
+            <div class="embed-container">
+            <iframe class="frm1"
+            width="382"
+            height="200"
             src="/uploads/{{fileName}}"
             frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope;
@@ -63,35 +65,9 @@
             <div class="card-body">
               <h5 class="card-title">{{title}}</h5>
               <p class="card-text">{{description}}</p>
-              <div class="clearfix">
                 <div class="price">{{message}}</div>
-              </div>
-              <a href="#"  id= "button1" class="btn btn-success" >Delete</a>
             </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card" style="width: 24rem;">
-=======
-      <div class="row mt-4">
-        {{#each this}}
-        <div class="col-md-4">
-          <div class="card" style="width: 24rem;">
->>>>>>> 39ecd82e647262d1867966479d745cde0b87d71e
-            <img src="/uploads/{{fileName}}" class="card-img-top"
-              alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{title}}</h5>
-              <p class="card-text">{{description}}</p>
-              <div class="clearfix">
-                <div class="price">{{message}}</div>
-              </div>
-<<<<<<< HEAD
-              <a href="#" class="btn btn-success">Delete</a>
-=======
-              <a href="#" class="btn btn-success">Buy</a>
->>>>>>> 39ecd82e647262d1867966479d745cde0b87d71e
+              <a href="#"  id= "button1" class="btn btn-success" >Delete</a>
             </div>
           </div>
         </div>
@@ -100,13 +76,10 @@
       {{/each}}
     </div>
 
-<<<<<<< HEAD
 
        
 
       
         
-=======
->>>>>>> 39ecd82e647262d1867966479d745cde0b87d71e
   </body>
 </html>
