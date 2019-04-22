@@ -20,12 +20,14 @@ var addEvent = require("./routes/addEvent");
 var Admin = require("./routes/AdminLogin");
 var logout = require("./routes/logout");
 
+
 // require post requests
 var signUpPost = require("./routes/signUpPost");
 var loginPost = require("./routes/loginPost");
 var adminEventPost = require("./routes/adminEventPost");
 var uploadPost = require("./routes/uploadPost");
 var AdminLoginPost =require("./routes/AdminLoginPost");
+var deletePost = require("./routes/deletePost");
 
 //express app has started
 var app = express();
@@ -33,7 +35,12 @@ app.use(session({secret: "catkey" }));
 
 //setting and configuration has done here
 app.set("view engine", "hbs");
+
+
+
 app.use(bodyParser.urlencoded({ extended: false }));
+
+//static folder
 app.use(express.static("public"));
 
 //The mongo connection
@@ -89,6 +96,8 @@ app.post("/AdminEventPost", adminEventPost.adminEventPost);
 app.post("/Admin" , AdminLoginPost.Admin );
 
 app.post("/upload", uploadPost.uploadPost);
+
+app.post("/delete/:mongoId", deletePost.deletePost);
 
 app.listen(3000, function(req, res) {
   console.log("app has been started at port 3000");
