@@ -47,25 +47,26 @@
       </nav>
     </div>
     <br />
-      
+
     <div class="container">
       {{#each videoArrayOfTwo}}
       <div class="row mt-4" style="">
         {{#each this}}
-        <div class="col-md-4" style="margin-right: 15rem;">
+        <div class="col-md-4" style="margin-right: ;">
           <div class="card" style="width: 24rem;margin-right: 154rem;">
-            <iframe width="500" height="300" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope;
-            picture-in-picture" allowfullscreen=""></iframe>
+            <iframe width="380" height="180" src="" frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope;
+              picture-in-picture" allowfullscreen=""></iframe>
             <div class="card-body">
               <h5 class="card-title">{{title}}</h5>
               <input type="hidden" id="mongoId" value="{{_id}}">
 
               <p class="card-text"></p>
               <div class="clearfix">
-                <div class="price">first videofirst videofirst video</div>
+                <div class=""></div>
               </div>
               <span class="containerbtn" style="margin-right: 13rem;">
-              <a href="#" class="btn btn-success" id="button1">Delete</a></span>
+                <a href="#" class="btn btn-success" id="button1">Delete</a></span>
               <a href="#" class="btn btn-success" id="button2">Edit</a>
             </div>
           </div>
@@ -77,8 +78,8 @@
 
 
 
-        
-          
+
+
 
     <script src="/js/deletepost.js"></script>
   </body>
