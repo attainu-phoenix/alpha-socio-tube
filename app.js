@@ -17,16 +17,16 @@ var upload = require("./routes/upload");
 var userDashboard = require("./routes/userDashboard");
 var adminDashboard = require("./routes/adminDashboard");
 var addEvent = require("./routes/addEvent");
-var admin = require("./routes/adminLogin");
+var admin = require("./routes/AdminLogin");
 var adminEvent = require("./routes/adminEvent");
 var logout = require("./routes/logout");
 
 // require post requests
 var signUpPost = require("./routes/signUpPost");
 var loginPost = require("./routes/loginPost");
-var adminEventPost = require("./routes/adminEventPost");
+var adminEventPost = require("./routes/AdminEventPost");
 var uploadPost = require("./routes/uploadPost");
-var adminLoginPost = require("./routes/adminLoginPost");
+var adminLoginPost = require("./routes/AdminLoginPost");
 var deletePost = require("./routes/deletePost");
 var acceptPost = require("./routes/acceptPost");
 
