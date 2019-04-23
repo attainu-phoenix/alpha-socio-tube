@@ -18,25 +18,24 @@ var userDashboard = require("./routes/userDashboard");
 var adminDashboard = require("./routes/adminDashboard");
 var addEvent = require("./routes/addEvent");
 var Admin = require("./routes/AdminLogin");
+var adminEvent = require("./routes/adminEvent");
 var logout = require("./routes/logout");
-
 
 // require post requests
 var signUpPost = require("./routes/signUpPost");
 var loginPost = require("./routes/loginPost");
 var adminEventPost = require("./routes/adminEventPost");
 var uploadPost = require("./routes/uploadPost");
-var AdminLoginPost =require("./routes/AdminLoginPost");
+var AdminLoginPost = require("./routes/AdminLoginPost");
 var deletePost = require("./routes/deletePost");
+var acceptPost = require("./routes/acceptPost");
 
 //express app has started
 var app = express();
-app.use(session({secret: "catkey" }));
+app.use(session({ secret: "catkey" }));
 
 //setting and configuration has done here
 app.set("view engine", "hbs");
-
-
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -81,10 +80,11 @@ app.get("/adminDashboard", adminDashboard.adminDashboard);
 
 app.get("/newRequests", newRequests.newRequests);
 
-app.get("/Admin" ,Admin.Admin);
+app.get("/Admin", Admin.Admin);
 
-app.get("/logout",logout.logout );
+app.get("/adminEvent", adminEvent.adminEvent);
 
+app.get("/logout", logout.logout);
 
 // post request routes
 app.post("/signUp", signUpPost.signUp);
@@ -93,11 +93,13 @@ app.post("/login", loginPost.login);
 
 app.post("/AdminEventPost", adminEventPost.adminEventPost);
 
-app.post("/Admin" , AdminLoginPost.Admin );
+app.post("/Admin", AdminLoginPost.Admin);
 
 app.post("/upload", uploadPost.uploadPost);
 
 app.post("/delete/:mongoId", deletePost.deletePost);
+
+app.post("/acceptPost", acceptPost.acceptPost);
 
 app.listen(3000, function(req, res) {
   console.log("app has been started at port 3000");

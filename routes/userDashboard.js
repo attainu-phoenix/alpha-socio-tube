@@ -7,7 +7,7 @@ var userDashboard = function(req, res) {
     var DB = req.app.locals.DB;
 
     DB.collection("videos")
-      .find({})
+      .find({ approved: true })
       .toArray(function(error, data) {
         if (error) {
           console.log("couldnt upload db error");

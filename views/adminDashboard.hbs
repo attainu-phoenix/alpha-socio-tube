@@ -16,7 +16,7 @@
   <body>
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">SocioTube - Hello {{data.email}}</a>
+        <a class="navbar-brand" href="#">SocioTube</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -32,13 +32,13 @@
           id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="/events">Events</a>
+              <a class="nav-link" href="/adminEvent">Events</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/upload">Upload</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/adminDashboard/addEvent">Upload Event</a>
+              <a class="nav-link" href="/adminDashboard/addEvent">Add Event</a>
             </li>
 
             <li class="nav-item">
@@ -51,124 +51,29 @@
         </div>
       </nav>
     </div>
-    <br />
+
     <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <iframe
-            width="500"
-            height="300"
-            src="https://www.youtube.com/embed/jLpkW5C8PqE"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope;
-            picture-in-picture"
-            allowfullscreen></iframe>
-          <p>Category</p>
-          <h5>A small step can change many outcomes.</h5>
-          <p>Published: 3 August, 2015</p>
-        </div>
+      {{#each videoArrayOfTwo}}
+      <div class="row mt-4">
+        {{#each this}}
+        <div class="col-md-4" id="col">
 
-        <div class="col-md-6">
-          <iframe
-            width="500"
-            height="300"
-            src="https://www.youtube.com/embed/YUdOoTLv3kA"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope;
-            picture-in-picture"
-            allowfullscreen></iframe>
-          <p>Category</p>
-          <h5>A small step can change many outcomes.</h5>
-          <p>Published: 3 August, 2015</p>
+          <div class="card" id="frame1" style="width: 24rem;">
+            <div class="embed-container">
+              <video class="video-fluid z-depth-1" width="382" height="200" loop
+                controls>
+                <source src="/uploads/{{fileName}}" type="video/mp4" />
+              </video>
+              <div class="card-body">
+                <h5 class="card-title">{{title}}</h5>
+                <p class="card-text">{{description}}</p>
+              </div>
+            </div>
+          </div>
         </div>
+        {{/each}}
       </div>
-      <div class="row">
-        <div class="col-md-6">
-          <iframe
-            width="500"
-            height="300"
-            src="https://www.youtube.com/embed/t-AGqhhNBE4"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope;
-            picture-in-picture"
-            allowfullscreen></iframe>
-          <p>Category</p>
-          <h5>A small step can change many outcomes.</h5>
-          <p>Published: 3 August, 2015</p>
-        </div>
-
-        <div class="col-md-6">
-          <iframe
-            width="500"
-            height="300"
-            src="https://www.youtube.com/embed/1sb68Jrc0q8"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope;
-            picture-in-picture"
-            allowfullscreen></iframe>
-          <p>Category</p>
-          <h5>A small step can change many outcomes.</h5>
-          <p>Published: 3 August, 2015</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <iframe
-            width="500"
-            height="300"
-            src="https://www.youtube.com/embed/1kUmkq5D-ss"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope;
-            picture-in-picture"
-            allowfullscreen></iframe>
-          <p>Category</p>
-          <h5>A small step can change many outcomes.</h5>
-          <p>Published: 3 August, 2015</p>
-        </div>
-
-        <div class="col-md-6">
-          <iframe
-            width="500"
-            height="300"
-            src="https://www.youtube.com/embed/zlHx-YIKfsc"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope;
-            picture-in-picture"
-            allowfullscreen></iframe>
-          <p>Category</p>
-          <h5>A small step can change many outcomes.</h5>
-          <p>Published: 3 August, 2015</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <iframe
-            width="500"
-            height="300"
-            src="https://www.youtube.com/embed/ye0Jua2hIj8"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope;
-            picture-in-picture"
-            allowfullscreen></iframe>
-          <p>Category</p>
-          <h5>A small step can change many outcomes.</h5>
-          <p>Published: 3 August, 2015</p>
-        </div>
-
-        <div class="col-md-6">
-          <iframe
-            width="500"
-            height="300"
-            src="https://www.youtube.com/embed/Zt52ABQw_cw"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope;
-            picture-in-picture"
-            allowfullscreen></iframe>
-          <p>Category</p>
-          <h5>A small step can change many outcomes.</h5>
-          <p>Published: 3 August, 2015</p>
-        </div>
-      </div>
+      {{/each}}
     </div>
   </body>
 </html>

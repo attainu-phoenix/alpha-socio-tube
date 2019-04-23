@@ -7,7 +7,7 @@ var Admin = function(request, response) {
 
   DB.collection("AdminLogin").findOne({ email: email }, function(error, data) {
     request.session.data = data;
-    console.log(data);
+    console.log(request.session.data);
     if (request.session.data) {
       console.log("you are already logged in ");
       return response.redirect("/adminDashboard");
@@ -17,7 +17,6 @@ var Admin = function(request, response) {
       console.log("correct password");
       return response.render("AdminDashboard.hbs");
     } else {
-      console.log(data);
       return response.render("Admin.hbs");
     }
   });

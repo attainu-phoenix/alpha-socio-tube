@@ -29,6 +29,25 @@
           id="navbarNav">
 
           <ul class="navbar-nav">
+            {{#if admin}}
+            <li class="nav-item">
+              <a class="nav-link" href="/events">Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/upload">Upload</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/adminDashboard/addEvent">Add Event</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/newRequests">Requests</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">logout</a>
+            </ul>
+            {{else}}
+
             {{#if user}}
             <li class="nav-item">
               <a class="nav-link" href="/events">Events</a>
@@ -52,6 +71,7 @@
                 <a class="nav-link" href="/signUp">SignUp</a>
               </li>
               {{/if}}
+              {{/if}}
             </ul>
           </div>
         </nav>
@@ -60,11 +80,20 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <br>
-            <h4>Recent Activity Gallery</h4>
+            <h3>Recent Activity Gallery</h3>
             <hr>
             {{#each data}}
+            <div class="card">
+              <h2 class="card-header">{{this.title}}</h2>
+              <img class="card-img-top" src="/eventImage/{{this.filename}}"
+                alt="Card image">
+              <div class="card-body">
 
+                <p class="card-text">{{this.content}}</p>
+                <h2 class="card-text">{{this.organizer}}</h2>
+                <h2 class="card-text">{{this.Date}}</h2>
+              </div>
+            </div>
             {{/each}}
           </div>
         </div>

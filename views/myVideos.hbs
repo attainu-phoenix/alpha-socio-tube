@@ -55,21 +55,17 @@
 
             <div class="card" id="frame1" style="width: 24rem;">
               <div class="embed-container">
-                <iframe class="frm1"
-                  width="382"
-                  height="200"
-                  src="/uploads/{{fileName}}"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; encrypted-media; gyroscope;
-                  picture-in-picture"
-                  allowfullscreen></iframe>
+                <video class="video-fluid z-depth-1" width="382" height="200"
+                  loop
+                  controls>
+                  <source src="/uploads/{{fileName}}" type="video/mp4" />
+                </video>
                 <input type="hidden" id="mongoId" value="{{_id}}">
                 <div class="card-body">
                   <h5 class="card-title">{{title}}</h5>
                   <p class="card-text">{{description}}</p>
-                  <div class="price">{{message}}</div>
                 </div>
-                <a href="#" id="button1" class="btn btn-success" id="button1">Delete</a>
+                <a href="#" id="button1" class="btn btn-success">Delete</a>
               </div>
             </div>
           </div>

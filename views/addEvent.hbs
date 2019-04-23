@@ -16,7 +16,7 @@
   <body>
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">SocioTube</a>
+        <a class="navbar-brand" href="#">SocioTube</a>
         <button class="navbar-toggler" type="button"
           data-toggle="collapse"
           data-target="#navbarNav" aria-controls="navbarNav"
@@ -29,52 +29,59 @@
           <ul class="navbar-nav">
 
             <li class="nav-item">
-              <a class="nav-link" href="/myVideos">My videos</a>
+              <a class="nav-link" href="/events">Events</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/events">Event</a>
+              <a class="nav-link" href="/upload">Upload</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/logout">Logout</a>
+              <a class="nav-link" href="/adminDashboard/addEvent">Add Event</a>
             </li>
 
-          </ul>
-        </div>
-      </nav>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 offset-md-3">
-          <h2 class="text-center">Uplaod the Event Below</h2>
-          <hr>
-          <form action="/AdminEventPost" method="POST"
-            enctype="multipart/form-data">
-            <div>
-              <label>Write the appropaite title</label>
-              <input class="form-control" type="text" name="title">
-            </div>
-            <div>
-              <label>Write the whole content here</label>
-              <textarea class="form-control" rows="5" type="text"
-                name="content"></textarea>
-            </div>
-            <div>
-              <label>Upload the image</label>
-              <input class="form-control" type="file" name="image">
-            </div>
-            <div>
-              <label>Organizer </label>
-              <input class="form-control" rows="5" type="text" name="organizer">
-            </div>
-            <div>
-              <label>Date </label>
-              <input class="form-control" rows="5" name="Date" type="Date">
-            </div>
-            <p></p>
-            <button type="submit" class="btn btn-danger">Submit</button>
-          </form>
+            <li class="nav-item">
+              <a class="nav-link" href="/newRequests">Requests</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">logout</a>
+
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <h2 class="text-center">Upload the Event Below</h2>
+            <hr>
+            <form action="/AdminEventPost" method="POST"
+              enctype="multipart/form-data">
+              <div>
+                <label>Write the appropaite title</label>
+                <input class="form-control" type="text" name="title">
+              </div>
+              <div>
+                <label>Write the whole content here</label>
+                <textarea class="form-control" rows="5" type="text"
+                  name="content"></textarea>
+              </div>
+              <div>
+                <label>Upload the image</label>
+                <input class="form-control" type="file" name="image">
+              </div>
+              <div>
+                <label>Organizer </label>
+                <input class="form-control" rows="5" type="text"
+                  name="organizer">
+              </div>
+              <div>
+                <label>Date </label>
+                <input class="form-control" rows="5" name="Date" type="Date">
+              </div>
+              <p></p>
+              <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-  </body>
-</html>
+    </body>
+  </html>

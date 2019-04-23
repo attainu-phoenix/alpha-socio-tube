@@ -16,7 +16,7 @@
   <body>
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">SocioTube</a>
+        <a class="navbar-brand" href="/userDashboard">SocioTube</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -54,23 +54,16 @@
       <div class="row mt-4">
         {{#each this}}
         <div class="col-md-4" id="col">
-
           <div class="card" id="frame1" style="width: 24rem;">
             <div class="embed-container">
-              <iframe class="frm1"
-                width="382"
-                height="200"
-                src="/uploads/{{fileName}}"
-                frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope;
-                picture-in-picture"
-                allowfullscreen></iframe>
+              <video class="video-fluid z-depth-1" width="382" height="200" loop
+                controls>
+                <source src="/uploads/{{fileName}}" type="video/mp4" />
+              </video>
               <div class="card-body">
                 <h5 class="card-title">{{title}}</h5>
                 <p class="card-text">{{description}}</p>
-                <div class="price">{{message}}</div>
               </div>
-              <a href="#" id="button1" class="btn btn-success">Delete</a>
             </div>
           </div>
         </div>

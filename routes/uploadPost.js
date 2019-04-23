@@ -14,12 +14,10 @@ var uploadPost = function(req, res) {
     var data = {};
     data.title = fields.title[0];
     data.description = fields.description[0];
-    data.message = fields.message[0];
+    // data.message = fields.message[0];
     data.originalFileName = files.image[0].originalFilename;
     data.fileName = files.image[0].path.split("\\")[2];
-
-    console.log(files);
-    console.log(data);
+    data.approved = false;
 
     // Code for saving data
     DB.collection("videos").insertOne(data, function(error, dataInserted) {

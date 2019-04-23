@@ -6,7 +6,6 @@ var events = function(request, response) {
   DB.collection("events")
     .find({})
     .toArray(function(error, data) {
-      console.log(data);
       if (error) {
         return console.log("couldnt get the data");
       } else {
