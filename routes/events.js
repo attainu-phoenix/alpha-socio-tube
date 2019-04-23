@@ -11,7 +11,8 @@ var events = function(request, response) {
         return console.log("couldnt get the data");
       } else {
         var data = {
-          data: data
+          data: data,
+          user: request.session.data
         };
         return response.render("events.hbs", data);
       }

@@ -4,16 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Home | Events</title>
     <link rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Home | Events</title>
   </head>
   <body>
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">Socio-tube</a>
+        {{#if user}}
+        <a class="navbar-brand" href="/userDashboard">SocioTube</a>
+        {{else}}
+        <a class="navbar-brand" href="/">SocioTube</a>
+        {{/if}}
         <button class="navbar-toggler" type="button"
           data-toggle="collapse"
           data-target="#navbarNav" aria-controls="navbarNav"
@@ -24,25 +29,44 @@
           id="navbarNav">
 
           <ul class="navbar-nav">
+            {{#if user}}
             <li class="nav-item">
-              <a class="nav-link" href="/upload">Upload </a>
+              <a class="nav-link" href="/events">Events</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/myVideos">My Videos</a>
+              <a class="nav-link" href="/upload">Upload</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/logout">log out</a>
+              <a class="nav-link" href="/myVideos">My videos</a>
             </li>
-          </ul>
-        </div>
-      </nav>
-      <div class="row">
-        <div class="col-md-6">
-          <h3>Recent Activity Gallery</h3>
-          <hr>
-          {{#each data}}
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Logout</a>
+              {{else}}
+              <li class="nav-item">
+                <a class="nav-link" href="/events">Events</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/signUp">SignUp</a>
+              </li>
+              {{/if}}
+            </ul>
+          </div>
+        </nav>
+      </div>
 
-          {{/each}}
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <br>
+            <h4>Recent Activity Gallery</h4>
+            <hr>
+            {{#each data}}
+
+            {{/each}}
+          </div>
         </div>
       </div>
     </body>

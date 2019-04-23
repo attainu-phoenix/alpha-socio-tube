@@ -12,10 +12,11 @@ var login = function(req, res) {
     if (error) {
       errors.push({ text: "Invalid email or password" });
       return res.render("login.hbs", { errors: errors });
-    } else {
+    }
+    if (data) {
       if (data.password == password) {
         req.session.data = data;
-        return res.render("userDashboard.hbs");
+        return res.redirect("/userDashboard");
       } else {
         errors.push({ text: "Invalid password" });
         return res.render("login.hbs", { errors: errors });

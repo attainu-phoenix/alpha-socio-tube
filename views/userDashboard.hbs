@@ -10,6 +10,7 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
       />
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>User| Dashboard</title>
   </head>
   <body>
@@ -46,24 +47,36 @@
         </div>
       </nav>
     </div>
-    <br />
+
+
     <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <iframe
-            width="500"
-            height="300"
-            src=""
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope;
-            picture-in-picture"
-            allowfullscreen></iframe>
-          <p>Category</p>
-          <h5></h5>
-          <p>Published: 3 August, 2015</p>
+      {{#each videoArrayOfTwo}}
+      <div class="row mt-4">
+        {{#each this}}
+        <div class="col-md-4" id="col">
+
+          <div class="card" id="frame1" style="width: 24rem;">
+            <div class="embed-container">
+              <iframe class="frm1"
+                width="382"
+                height="200"
+                src="/uploads/{{fileName}}"
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope;
+                picture-in-picture"
+                allowfullscreen></iframe>
+              <div class="card-body">
+                <h5 class="card-title">{{title}}</h5>
+                <p class="card-text">{{description}}</p>
+                <div class="price">{{message}}</div>
+              </div>
+              <a href="#" id="button1" class="btn btn-success">Delete</a>
+            </div>
+          </div>
         </div>
-        
+        {{/each}}
       </div>
+      {{/each}}
     </div>
   </body>
 </html>
