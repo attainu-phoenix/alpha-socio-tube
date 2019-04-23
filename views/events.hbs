@@ -41,7 +41,16 @@
           <h3>Recent Activity Gallery</h3>
           <hr>
           {{#each data}}
-
+          <div class="card">
+            <h2 class="card-header">{{this.title}}</h2>
+            <img class="card-img-top" src="/eventImage/{{this.filename}}" alt="Card image">
+          <div class="card-body">
+             
+              <p class="card-text">{{this.content}}</p>
+              <h2 class="card-text">{{this.organizer}}</h2>
+              <h2 class="card-text">{{this.Date}}</h2>
+  </div>
+</div>
           {{/each}}
         </div>
       </div>

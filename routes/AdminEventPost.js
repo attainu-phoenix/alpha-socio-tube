@@ -28,7 +28,7 @@ var adminEventPost = function(request, response) {
     };
 
     obj.originalFileName = files.image[0].originalFilename;
-    obj.filename = files.image[0].path.split("/")[1];
+    obj.filename = files.image[0].path.split("\\")[2];
 
     console.log(obj);
 
