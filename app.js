@@ -17,7 +17,7 @@ var upload = require("./routes/upload");
 var userDashboard = require("./routes/userDashboard");
 var adminDashboard = require("./routes/adminDashboard");
 var addEvent = require("./routes/addEvent");
-var Admin = require("./routes/AdminLogin");
+var Admin = require("./routes/adminLogin");
 var adminEvent = require("./routes/adminEvent");
 var logout = require("./routes/logout");
 
@@ -26,7 +26,7 @@ var signUpPost = require("./routes/signUpPost");
 var loginPost = require("./routes/loginPost");
 var adminEventPost = require("./routes/adminEventPost");
 var uploadPost = require("./routes/uploadPost");
-var AdminLoginPost = require("./routes/AdminLoginPost");
+var AdminLoginPost = require("./routes/adminLoginPost");
 var deletePost = require("./routes/deletePost");
 var acceptPost = require("./routes/acceptPost");
 
