@@ -9,7 +9,7 @@ var adminEventPost = function(request, response) {
 
   var uploadData = new multiparty.Form({
     autoFiles: true,
-    uploadDir: "Public/eventImage"
+    uploadDir: "public/eventImage"
   });
 
   uploadData.parse(request, function(error, field, files) {

@@ -17,7 +17,7 @@ var upload = require("./routes/upload");
 var userDashboard = require("./routes/userDashboard");
 var adminDashboard = require("./routes/adminDashboard");
 var addEvent = require("./routes/addEvent");
-var Admin = require("./routes/adminLogin");
+var admin = require("./routes/adminLogin");
 var adminEvent = require("./routes/adminEvent");
 var logout = require("./routes/logout");
 
@@ -26,7 +26,7 @@ var signUpPost = require("./routes/signUpPost");
 var loginPost = require("./routes/loginPost");
 var adminEventPost = require("./routes/adminEventPost");
 var uploadPost = require("./routes/uploadPost");
-var AdminLoginPost = require("./routes/adminLoginPost");
+var adminLoginPost = require("./routes/adminLoginPost");
 var deletePost = require("./routes/deletePost");
 var acceptPost = require("./routes/acceptPost");
 
@@ -64,7 +64,7 @@ app.get("/", landingPage.landingPage);
 
 app.get("/events", events.events);
 
-app.get("/AdminDashboard/addEvent", addEvent.addEvent);
+app.get("/adminDashboard/addEvent", addEvent.addEvent);
 
 app.get("/login", login.login);
 
@@ -80,7 +80,7 @@ app.get("/adminDashboard", adminDashboard.adminDashboard);
 
 app.get("/newRequests", newRequests.newRequests);
 
-app.get("/Admin", Admin.Admin);
+app.get("/admin", admin.admin);
 
 app.get("/adminEvent", adminEvent.adminEvent);
 
@@ -91,9 +91,9 @@ app.post("/signUp", signUpPost.signUp);
 
 app.post("/login", loginPost.login);
 
-app.post("/AdminEventPost", adminEventPost.adminEventPost);
+app.post("/adminEventPost", adminEventPost.adminEventPost);
 
-app.post("/Admin", AdminLoginPost.Admin);
+app.post("/admin", adminLoginPost.admin);
 
 app.post("/upload", uploadPost.uploadPost);
 
