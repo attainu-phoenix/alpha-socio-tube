@@ -6,15 +6,10 @@ var admin = function(request, response) {
   var password = request.body.password;
 
   DB.collection("adminLogin").findOne({ email: email }, function(error, data) {
-    request.session.data = data;
-    console.log(request.session.data);
-    if (request.session.data) {
-      console.log("you are already logged in ");
-      return response.redirect("/adminDashboard");
-    } else if (error) {
+    if (error) {
       return response.render("adminLogin.hbs");
     } else if (data.password == password) {
-      console.log("correct password");
+      request.session.data = data;
       return response.render("adminDashboard.hbs");
     } else {
       return response.render("admin.hbs");

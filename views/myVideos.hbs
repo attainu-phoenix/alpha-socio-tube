@@ -47,7 +47,7 @@
         </nav>
       </div>
 
-      <div class="container">
+      {{!-- <div class="container">
         {{#each videoArrayOfTwo}}
         <div class="row mt-4" style="margin-right:rem;">
           {{#each this}}
@@ -65,35 +65,7 @@
                   <h5 class="card-title">{{title}}</h5>
                   <p class="card-text">{{description}}</p>
                 </div>
-                <a href="#" id="button1" class="btn btn-success">Delete</a>
-              </div>
-            </div>
-          </div>
-          {{/each}}
-        </div>
-        {{/each}}
-      </div>
-
-      {{!-- <div class="container">
-        {{#each videoArrayOfTwo}}
-        <div class="row mt-4" style="">
-          {{#each this}}
-          <div class="col-md-4" style="margin-right: ;">
-            <div class="card" style="width: 24rem;margin-right: 154rem;">
-              <iframe width="380" height="180" src="" frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope;
-                picture-in-picture" allowfullscreen=""></iframe>
-              <div class="card-body">
-                <h5 class="card-title">{{title}}</h5>
-                <input type="hidden" id="mongoId" value="{{_id}}">
-
-                <p class="card-text"></p>
-                <div class="clearfix">
-                  <div class=""></div>
-                </div>
-                <span class="containerbtn" style="margin-right: 13rem;">
-                  <a href="#" class="btn btn-success" id="button1">Delete</a></span>
-                <a href="#" class="btn btn-success" id="button2">Edit</a>
+                <a href="#" class="btn btn-success button1">Delete</a>
               </div>
             </div>
           </div>
@@ -103,9 +75,34 @@
       </div> --}}
 
 
+      <div class="container">
+        {{#each videoArrayOfTwo}}
+        <div class="row mt-4" style="margin-right:rem;">
+          {{#each this}}
+          <div class="col-md-4" id="col">
 
-
-
+            <div class="card" id="frame1" style="width: 24rem;">
+              <div class="embed-container">
+                <video class="video-fluid z-depth-1" width="382" height="200"
+                  loop
+                  controls>
+                  <source src="/uploads/{{fileName}}" type="video/mp4" />
+                </video>
+                {{!-- <input type="hidden" id="mongoId" value="{{_id}}"> --}}
+                <div class="card-body">
+                  <h5 class="card-title">{{title}}</h5>
+                  <p class="card-text">{{description}}</p>
+                </div>
+                <form action="/delete/{{_id}}" method="POST">
+                  <button type="submit" class="btn btn-success">Delete</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+        {{/each}}
+      </div>
 
       <script src="/js/deletepost.js"></script>
     </body>
