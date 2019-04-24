@@ -2,11 +2,11 @@
 var myVideos = function(req, res) {
   var DB = req.app.locals.DB;
 
-  if (!req.session.data) {
+  if (!req.session.user) {
     return res.redirect("/login");
   } else {
     DB.collection("videos")
-      .find({approved: true})
+      .find({ createdBy: req.session.user._id })
       .toArray(function(error, data) {
         if (error) {
           console.log("couldnt upload db error");

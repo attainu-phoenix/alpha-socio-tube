@@ -2,6 +2,9 @@
 
 var adminEvent = function(request, response) {
   var DB = request.app.locals.DB;
+  if (!request.session.admin) {
+    return response.redirect("/adminLogin");
+  }
 
   DB.collection("events")
     .find({})

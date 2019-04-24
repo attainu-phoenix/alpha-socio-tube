@@ -1,8 +1,8 @@
 "use strict";
 
 var adminDashboard = function(req, res) {
-  if (!req.session.data) {
-    return res.redirect("/Admin");
+  if (!req.session.admin) {
+    return res.redirect("/adminLogin");
   }
   var DB = req.app.locals.DB;
 
@@ -16,10 +16,8 @@ var adminDashboard = function(req, res) {
         for (var i = 0; i < data.length; i += 2) {
           videoArrayOfTwo.push(data.slice(i, i + 2));
         }
-        console.log(req.session.data.admin);
         return res.render("adminDashboard.hbs", {
           videoArrayOfTwo: videoArrayOfTwo,
-          admin: req.session.data.admin
         });
       }
     });

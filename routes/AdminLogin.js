@@ -1,6 +1,6 @@
 "use strict";
 
-var admin = function(request, response) {
+var adminLogin = function(request, response) {
   if (request.session.data) {
     return response.redirect("/adminDashboard");
   }
@@ -11,4 +11,4 @@ var admin = function(request, response) {
   response.render("adminLogin.hbs", data);
 };
 
-exports.admin = admin;
+exports.adminLogin = adminLogin;
