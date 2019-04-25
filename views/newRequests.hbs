@@ -10,7 +10,7 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
       />
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <title>Admin | newRequests</title>
   </head>
   <body>
@@ -52,8 +52,10 @@
       </div>
       <br />
 
-
       <div class="container">
+        {{#if requests}}
+        <h3> No new upload requests</h3>
+        {{/if}}
         {{#each videoArrayOfTwo}}
         <div class="row mt-4" style="margin-right:rem;">
           {{#each this}}
@@ -66,17 +68,18 @@
                   controls>
                   <source src="/uploads/{{fileName}}" type="video/mp4" />
                 </video>
-                {{!-- <input type="hidden" id="mongoId" value="{{_id}}"> --}}
                 <div class="card-body">
                   <h5 class="card-title">{{title}}</h5>
                   <p class="card-text">{{description}}</p>
                 </div>
-                <form action="/acceptPost/{{_id}}" method="POST">
-                  <button type="submit" class="btn btn-success">Accept</button>
-                </form>
-                <form action="/delete/{{_id}}" method="POST">
-                  <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
+                <div class="d-flex justify-content-center">
+                  <form action="/acceptPost/{{_id}}" method="POST">
+                    <button type="submit" class="btn btn-success">Accept</button>
+                  </form>
+                  <form action="/delete/{{_id}}" method="POST">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>

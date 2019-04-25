@@ -23,7 +23,7 @@ var uploadPost = function(req, res) {
     // Code for saving data
     DB.collection("videos").insertOne(data, function(error, dataInserted) {
       if (error) {
-        response.send("error inserting data into the DB");
+        res.send("error inserting data into the DB");
         return;
       }
       return res.render("upload.hbs", { success: "uploaded successfully" });

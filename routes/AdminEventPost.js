@@ -13,8 +13,6 @@ var adminEventPost = function(request, response) {
   });
 
   uploadData.parse(request, function(error, field, files) {
-    console.log(field);
-
     var title = field.title;
     var content = field.content;
     var organizer = field.organizer;
@@ -30,10 +28,16 @@ var adminEventPost = function(request, response) {
     obj.originalFileName = files.image[0].originalFilename;
     obj.filename = files.image[0].path.split("\\")[2];
 
-    console.log(obj);
+    console.log("entered event post");
 
     DB.collection("events").insertOne(obj, function(error, obj) {
-      return response.render("adminDashboard.hbs");
+      if (error) {
+        response.send("error inserting data into the DB");
+        return;
+      }
+      return response.render("upload.hbs", {
+        success: "added event successfully"
+      });
     });
   });
 };

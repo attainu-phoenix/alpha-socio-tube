@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Home | Admin | upload Event</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
       />
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <title>Home | Admin | upload Event</title>
   </head>
   <body>
     <div class="container">
@@ -31,9 +31,6 @@
             <li class="nav-item">
               <a class="nav-link" href="/events">Events</a>
             </li>
-            {{!-- <li class="nav-item">
-              <a class="nav-link" href="/upload">Upload</a>
-            </li> --}}
             <li class="nav-item">
               <a class="nav-link" href="/adminDashboard/addEvent">Add Event</a>
             </li>
@@ -51,8 +48,11 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6 offset-md-3">
-            <h2 class="text-center">Upload the Event Below</h2>
+            <h3 class="text-center">Upload the Event Below</h3>
             <hr>
+            {{#if success}}
+            <div class="alert alert-success">{{success}}</div>
+            {{/if}}
             <form action="/adminEventPost" method="POST"
               enctype="multipart/form-data">
               <div>
@@ -78,7 +78,7 @@
                 <input class="form-control" rows="5" name="Date" type="Date">
               </div>
               <p></p>
-              <button type="submit" class="btn btn-success">Submit</button>
+              <button type="submit" class="btn btn-success offset-md-5">Submit</button>
             </form>
           </div>
         </div>

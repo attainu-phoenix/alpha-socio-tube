@@ -16,7 +16,8 @@ var newRequests = function(req, res) {
             videoArrayOfTwo.push(data.slice(i, i + 2));
           }
           return res.render("newRequests.hbs", {
-            videoArrayOfTwo: videoArrayOfTwo
+            videoArrayOfTwo: videoArrayOfTwo,
+            requests: videoArrayOfTwo.length < 1
           });
         }
       });

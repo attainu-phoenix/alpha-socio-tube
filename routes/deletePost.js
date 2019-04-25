@@ -7,12 +7,23 @@ var deletePost = function(req, res) {
 
   var mongoId = req.params.mongoId;
 
-  DB.collection("videos").deleteOne(
-    { _id: mongodb.ObjectID(mongoId) },
-    function(error, status) {
-      res.redirect("/myVideos");
-    }
-  );
+  if (req.session.user) {
+    DB.collection("videos").deleteOne(
+      { _id: mongodb.ObjectID(mongoId) },
+      function(error, status) {
+        return res.redirect("/myVideos");
+      }
+    );
+  }
+
+  if (req.session.admin) {
+    DB.collection("videos").deleteOne(
+      { _id: mongodb.ObjectID(mongoId) },
+      function(error, status) {
+        res.redirect("/newRequests");
+      }
+    );
+  }
 };
 
 exports.deletePost = deletePost;
