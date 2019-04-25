@@ -1,8 +1,9 @@
 "use strict";
 
 var logout = function(request, response) {
-  request.session.data = null;
-  response.redirect("/");
+  request.session.user = null;
+  request.session.admin = null;
+  response.redirect("/login");
 };
 
 exports.logout = logout;

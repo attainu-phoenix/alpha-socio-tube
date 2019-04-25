@@ -2,8 +2,7 @@
 var mongodb = require("mongodb");
 
 var acceptPost = function(req, res) {
-  var mongoId = req.body.id;
-  console.log(mongoId);
+  var mongoId = req.params.mongoId;
   var DB = req.app.locals.DB;
 
   DB.collection("videos").updateOne(
@@ -11,7 +10,6 @@ var acceptPost = function(req, res) {
     { $set: { approved: true } }, // The new data to update
     function(error, data) {
       if (data) {
-        console.log("entered");
         res.redirect("/newRequests");
       }
     }

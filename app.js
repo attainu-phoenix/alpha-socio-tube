@@ -17,16 +17,16 @@ var upload = require("./routes/upload");
 var userDashboard = require("./routes/userDashboard");
 var adminDashboard = require("./routes/adminDashboard");
 var addEvent = require("./routes/addEvent");
-var Admin = require("./routes/AdminLogin");
+var adminLogin = require("./routes/adminLogin");
 var adminEvent = require("./routes/adminEvent");
 var logout = require("./routes/logout");
 
 // require post requests
 var signUpPost = require("./routes/signUpPost");
 var loginPost = require("./routes/loginPost");
-var adminEventPost = require("./routes/adminEventPost");
+var adminEventPost = require("./routes/AdminEventPost");
 var uploadPost = require("./routes/uploadPost");
-var AdminLoginPost = require("./routes/AdminLoginPost");
+var adminLoginPost = require("./routes/AdminLoginPost");
 var deletePost = require("./routes/deletePost");
 var acceptPost = require("./routes/acceptPost");
 
@@ -64,7 +64,7 @@ app.get("/", landingPage.landingPage);
 
 app.get("/events", events.events);
 
-app.get("/AdminDashboard/addEvent", addEvent.addEvent);
+app.get("/adminDashboard/addEvent", addEvent.addEvent);
 
 app.get("/login", login.login);
 
@@ -80,7 +80,7 @@ app.get("/adminDashboard", adminDashboard.adminDashboard);
 
 app.get("/newRequests", newRequests.newRequests);
 
-app.get("/Admin", Admin.Admin);
+app.get("/adminLogin", adminLogin.adminLogin);
 
 app.get("/adminEvent", adminEvent.adminEvent);
 
@@ -91,16 +91,14 @@ app.post("/signUp", signUpPost.signUp);
 
 app.post("/login", loginPost.login);
 
-app.post("/AdminEventPost", adminEventPost.adminEventPost);
+app.post("/adminEventPost", adminEventPost.adminEventPost);
 
-app.post("/Admin", AdminLoginPost.Admin);
+app.post("/adminLogin", adminLoginPost.adminLogin);
 
 app.post("/upload", uploadPost.uploadPost);
 
 app.post("/delete/:mongoId", deletePost.deletePost);
 
-app.post("/acceptPost", acceptPost.acceptPost);
+app.post("/acceptPost/:mongoId", acceptPost.acceptPost);
 
-app.listen(3000, function(req, res) {
-  console.log("app has been started at port 3000");
-});
+app.listen(process.env.PORT || 3000);

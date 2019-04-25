@@ -4,11 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet"
+    <link
+      rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css">
+      crossorigin="anonymous"
+      />
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <title>Home | Events</title>
   </head>
   <body>
@@ -17,7 +19,11 @@
         {{#if user}}
         <a class="navbar-brand" href="/userDashboard">SocioTube</a>
         {{else}}
+        {{#if admin}}
+        <a class="navbar-brand" href="/adminDashboard">SocioTube</a>
+        {{else}}
         <a class="navbar-brand" href="/">SocioTube</a>
+        {{/if}}
         {{/if}}
         <button class="navbar-toggler" type="button"
           data-toggle="collapse"
@@ -28,13 +34,10 @@
         <div class="collapse navbar-collapse d-flex justify-content-end"
           id="navbarNav">
 
+          {{#if admin}}
           <ul class="navbar-nav">
-            {{#if admin}}
             <li class="nav-item">
               <a class="nav-link" href="/events">Events</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/upload">Upload</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/adminDashboard/addEvent">Add Event</a>
@@ -47,29 +50,32 @@
               <a class="nav-link" href="/logout">logout</a>
             </ul>
             {{else}}
-
             {{#if user}}
-            <li class="nav-item">
-              <a class="nav-link" href="/events">Events</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/upload">Upload</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/myVideos">My videos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/logout">Logout</a>
-              {{else}}
+            <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="/events">Events</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/login">Login</a>
+                <a class="nav-link" href="/upload">Upload</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/signUp">SignUp</a>
+                <a class="nav-link" href="/myVideos">My videos</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a>
+              </ul>
+              {{else}}
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="/events">Events</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/signUp">SignUp</a>
+                </li>
+              </ul>
               {{/if}}
               {{/if}}
             </ul>
@@ -77,26 +83,28 @@
         </nav>
       </div>
 
-      <div class="container">
+
+      <div class="container text-center">
+        <h3>Recent Activity Gallery</h3>
+        <hr>
+        {{#each eventArrayOfTwo}}
         <div class="row">
-          <div class="col-md-6">
-            <h3>Recent Activity Gallery</h3>
-            <hr>
-            {{#each data}}
+          {{#each this}}
+          <div class="col-md-6 text-center">
             <div class="card">
               <h2 class="card-header">{{this.title}}</h2>
               <img class="card-img-top" src="/eventImage/{{this.filename}}"
                 alt="Card image">
               <div class="card-body">
-
                 <p class="card-text">{{this.content}}</p>
                 <h2 class="card-text">{{this.organizer}}</h2>
                 <h2 class="card-text">{{this.Date}}</h2>
               </div>
             </div>
-            {{/each}}
           </div>
+          {{/each}}
         </div>
+        {{/each}}
       </div>
     </body>
   </html>

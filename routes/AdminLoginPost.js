@@ -1,25 +1,20 @@
 "use strict";
 
-var Admin = function(request, response) {
+var adminLogin = function(request, response) {
   var DB = request.app.locals.DB;
   var email = request.body.email;
   var password = request.body.password;
 
-  DB.collection("AdminLogin").findOne({ email: email }, function(error, data) {
-    request.session.data = data;
-    console.log(request.session.data);
-    if (request.session.data) {
-      console.log("you are already logged in ");
+  DB.collection("adminLogin").findOne({ email: email }, function(error, admin) {
+    if (error) {
+      return response.redirect("/adminLogin");
+    } else if (admin.password == password) {
+      request.session.admin = admin;
       return response.redirect("/adminDashboard");
-    } else if (error) {
-      return response.render("AdminLogin.hbs");
-    } else if (data.password == password) {
-      console.log("correct password");
-      return response.render("AdminDashboard.hbs");
     } else {
-      return response.render("Admin.hbs");
+      return response.redirect("/adminLogin");
     }
   });
 };
 
-exports.Admin = Admin;
+exports.adminLogin = adminLogin;
