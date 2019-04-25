@@ -17,6 +17,7 @@ var uploadPost = function(req, res) {
     // data.message = fields.message[0];
     data.originalFileName = files.image[0].originalFilename;
     data.fileName = files.image[0].path.split("\\")[2];
+    data.createdBy = req.session.user._id;
     data.approved = false;
 
     // Code for saving data
@@ -25,7 +26,7 @@ var uploadPost = function(req, res) {
         response.send("error inserting data into the DB");
         return;
       }
-      return res.redirect("/");
+      return res.render("upload.hbs", { success: "uploaded successfully" });
     });
   });
 };

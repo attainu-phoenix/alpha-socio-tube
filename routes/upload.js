@@ -1,10 +1,15 @@
 "use strict";
 
 var upload = function(req, res) {
-  if (!req.session.data) {
-    return res.redirect("/login");
+  if (req.session.user || req.session.admin) {
+    var data = {
+      user: req.session.user,
+      admin: req.session.admin
+    };
+
+    return res.render("upload.hbs", data);
   } else {
-    res.render("upload.hbs", { admin: req.session.data.admin });
+    return res.redirect("/login");
   }
 };
 exports.upload = upload;

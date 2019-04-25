@@ -1,7 +1,7 @@
 "use strict";
 
 var newRequests = function(req, res) {
-  if (!req.session.data) {
+  if (!req.session.admin) {
     return res.redirect("/adminDashboard");
   } else {
     var DB = req.app.locals.DB;

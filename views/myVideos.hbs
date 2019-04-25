@@ -16,7 +16,7 @@
   <body>
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">SocioTube</a>
+        <a class="navbar-brand" href="/userDashboard">SocioTube</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -47,34 +47,6 @@
         </nav>
       </div>
 
-      {{!-- <div class="container">
-        {{#each videoArrayOfTwo}}
-        <div class="row mt-4" style="margin-right:rem;">
-          {{#each this}}
-          <div class="col-md-4" id="col">
-
-            <div class="card" id="frame1" style="width: 24rem;">
-              <div class="embed-container">
-                <video class="video-fluid z-depth-1" width="382" height="200"
-                  loop
-                  controls>
-                  <source src="/uploads/{{fileName}}" type="video/mp4" />
-                </video>
-                <input type="hidden" id="mongoId" value="{{_id}}">
-                <div class="card-body">
-                  <h5 class="card-title">{{title}}</h5>
-                  <p class="card-text">{{description}}</p>
-                </div>
-                <a href="#" class="btn btn-success button1">Delete</a>
-              </div>
-            </div>
-          </div>
-          {{/each}}
-        </div>
-        {{/each}}
-      </div> --}}
-
-
       <div class="container">
         {{#each videoArrayOfTwo}}
         <div class="row mt-4" style="margin-right:rem;">
@@ -88,7 +60,6 @@
                   controls>
                   <source src="/uploads/{{fileName}}" type="video/mp4" />
                 </video>
-                {{!-- <input type="hidden" id="mongoId" value="{{_id}}"> --}}
                 <div class="card-body">
                   <h5 class="card-title">{{title}}</h5>
                   <p class="card-text">{{description}}</p>

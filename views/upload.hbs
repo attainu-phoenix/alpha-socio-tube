@@ -16,7 +16,11 @@
   <body>
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">SocioTube</a>
+        {{#if admin}}
+        <a class="navbar-brand" href="/adminDashboard">SocioTube</a>
+        {{else}}
+        <a class="navbar-brand" href="/userDashboard">SocioTube</a>
+        {{/if}}
         <button class="navbar-toggler" type="button"
           data-toggle="collapse"
           data-target="#navbarNav" aria-controls="navbarNav"
@@ -64,6 +68,9 @@
           <div class="col-md-6 offset-md-3">
             <h2 class="text-center">Upload your videos below</h2>
             <hr>
+            {{#if success}}
+            <div class="alert alert-success">{{success}}</div>
+            {{/if}}
             <form action="/upload" method="POST" enctype="multipart/form-data">
               <div>
                 <label>Write the appropriate title</label>
@@ -89,13 +96,6 @@
                 <button type="submit" class="btn btn-success offset-md-5">Upload</button>
               </div>
             </form>
-            <ul>
-              {{#each images}}
-              <li>
-                <img src="{{this.fileName}}" alt="" height="400px">
-              </li>
-              {{/each}}
-            </ul>
           </div>
         </div>
       </div>

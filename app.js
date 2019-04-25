@@ -17,7 +17,7 @@ var upload = require("./routes/upload");
 var userDashboard = require("./routes/userDashboard");
 var adminDashboard = require("./routes/adminDashboard");
 var addEvent = require("./routes/addEvent");
-var admin = require("./routes/AdminLogin");
+var adminLogin = require("./routes/adminLogin");
 var adminEvent = require("./routes/adminEvent");
 var logout = require("./routes/logout");
 
@@ -80,7 +80,7 @@ app.get("/adminDashboard", adminDashboard.adminDashboard);
 
 app.get("/newRequests", newRequests.newRequests);
 
-app.get("/admin", admin.admin);
+app.get("/adminLogin", adminLogin.adminLogin);
 
 app.get("/adminEvent", adminEvent.adminEvent);
 
@@ -93,7 +93,7 @@ app.post("/login", loginPost.login);
 
 app.post("/adminEventPost", adminEventPost.adminEventPost);
 
-app.post("/admin", adminLoginPost.admin);
+app.post("/adminLogin", adminLoginPost.adminLogin);
 
 app.post("/upload", uploadPost.uploadPost);
 

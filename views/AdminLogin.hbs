@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Home | Login</title>
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="/">SocioTube</a>
+                <button class="navbar-toggler" type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarNav" aria-controls="navbarNav"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse d-flex justify-content-end"
+                    id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/events">Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/signup">Sign Up</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 offset-md-4">
+                    <h1 class="text-center">Admin-Login</h1>
+                    <hr>
+                    {{#if success}}
+                    {{#each success}}
+                    <div class="alert alert-success">{{text}}</div>
+                    {{/each}}
+                    {{/if}}
+                    {{#if errors}}
+                    {{#each errors}}
+                    <div class="alert alert-danger">{{text}}</div>
+                    {{/each}}
+                    {{/if}}
+                    <form action="/adminLogin" method="POST">
+                    <div class="form-group">
+                        <label for="email">Enter your Email Id: </label>
+                        <input type="email" id="email" class="form-control"
+                            name="email" required placeholder="enter your email id">
+                       </div>
+                        <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password"
+                            class="form-control" name="password" required
+                            placeholder="enter your password">
+                        </div> 
+                            <div>
+                                 Are you an User,<a href="/login">login here</a>.
+                            </div>
+                            <br>
+                           
+                        <button type="submit" class="btn btn-primary
+                            offset-md-5">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

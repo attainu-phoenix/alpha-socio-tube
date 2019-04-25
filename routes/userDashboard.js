@@ -1,7 +1,7 @@
 "use strict";
 
 var userDashboard = function(req, res) {
-  if (!req.session.data) {
+  if (!req.session.user) {
     return res.redirect("/login");
   } else {
     var DB = req.app.locals.DB;
