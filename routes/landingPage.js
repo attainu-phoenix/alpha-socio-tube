@@ -3,11 +3,6 @@
 var landingPage = function(req, res) {
   var DB = req.app.locals.DB;
 
-	var data = {
-		user: request.session.user,
-		admin: request.session.data
-	};	
-
   DB.collection("videos")
     .find({ approved: true })
     .toArray(function(error, data) {
