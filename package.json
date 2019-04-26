@@ -19,6 +19,7 @@
   "homepage": "https://github.com/attainu-phoenix/alpha-socio-tube#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "cloudinary": "^1.14.0",
     "express": "^4.16.4",
     "express-session": "^1.16.1",
     "handlebars": "^4.1.2",
