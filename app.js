@@ -100,7 +100,7 @@ app.post("/upload", uploadPost.uploadPost);
 app.post("/delete/:mongoId", deletePost.deletePost);
 
 app.post("/acceptPost/:mongoId", acceptPost.acceptPost);
-
+  
 var PORT = process.env.Port || 3000;
 
 app.listen(PORT, function(req, res) {
