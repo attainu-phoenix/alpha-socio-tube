@@ -13,6 +13,7 @@ var uploadPost = function(req, res) {
 
   fileUpload.parse(req, function(error, fields, files) {
     var data = {};
+    console.log(fields);
     data.title = fields.title[0];
     data.description = fields.description[0];
     data.originalFileName = files.image[0].originalFilename;
