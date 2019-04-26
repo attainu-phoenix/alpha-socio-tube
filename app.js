@@ -45,7 +45,9 @@ app.use(express.static("public"));
 //The mongo connection
 let DB;
 
-let mongoClient = new mongo.MongoClient("mongodb://localhost:27017/socioApp", {
+var DB_URL = process.env.DB_URL || "mongodb://localhost:27017/socioApp";
+
+let mongoClient = new mongo.MongoClient(DB_URL, {
   useNewUrlParser: true
 });
 
@@ -100,7 +102,7 @@ app.post("/upload", uploadPost.uploadPost);
 app.post("/delete/:mongoId", deletePost.deletePost);
 
 app.post("/acceptPost/:mongoId", acceptPost.acceptPost);
-  
+
 var PORT = process.env.Port || 3000;
 
 app.listen(PORT, function(req, res) {
