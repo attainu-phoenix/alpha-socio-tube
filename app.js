@@ -101,6 +101,8 @@ app.post("/delete/:mongoId", deletePost.deletePost);
 
 app.post("/acceptPost/:mongoId", acceptPost.acceptPost);
 
-app.listen(3000, function(req, res) {
+var PORT = process.env.Port || 3000;
+
+app.listen(PORT, function(req, res) {
   console.log("app has been started at port 3000");
 });
