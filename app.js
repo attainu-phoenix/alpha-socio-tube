@@ -24,9 +24,9 @@ var logout = require("./routes/logout");
 // require post requests
 var signUpPost = require("./routes/signUpPost");
 var loginPost = require("./routes/loginPost");
-var adminEventPost = require("./routes/AdminEventPost");
+var adminEventPost = require("./routes/adminEventPost");
 var uploadPost = require("./routes/uploadPost");
-var adminLoginPost = require("./routes/AdminLoginPost");
+var adminLoginPost = require("./routes/adminLoginPost");
 var deletePost = require("./routes/deletePost");
 var acceptPost = require("./routes/acceptPost");
 
