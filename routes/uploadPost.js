@@ -26,17 +26,21 @@ var uploadPost = function(req, res) {
       result
     ) {
       if (error) {
-        console.log(error);
-        return response.send("error uploading..");
+        return res.send("error uploading..");
       }
-      data.cloudPath = result.secure_url;
-      DB.collection("videos").insertOne(data, function(error, dataInserted) {
-        if (error) {
-          res.send("error inserting data into the DB");
-          return;
-        }
-        return res.render("upload.hbs", { success: "uploaded successfully" });
-      });
+      if (result) {
+        data.cloudPath = result.secure_url;
+        DB.collection("videos").insertOne(data, function(error, dataInserted) {
+          if (error) {
+            return res.send("error inserting data into the DB");
+          }
+          if (dataInserted) {
+            return res.render("upload.hbs", {
+              success: "uploaded successfully"
+            });
+          }
+        });
+      }
     });
   });
 };
