@@ -13,11 +13,11 @@ var adminEventPost = function(request, response) {
   });
 
   uploadData.parse(request, function(error, field, files) {
-    var title = field.title;
-    var content = field.content;
-    var organizer = field.organizer;
+    var title = field.title[0];
+    var content = field.content[0];
+    var organizer = field.organizer[0];
 
-    var Date = field.Date;
+    var Date = field.Date[0];
 
     var obj = {
       title: title,
