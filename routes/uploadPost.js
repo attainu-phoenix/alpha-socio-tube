@@ -6,16 +6,13 @@ var uploadPost = function(req, res) {
   var DB = req.app.locals.DB;
 
   // Receive the upload data
-  var fileUpload = new multiparty.Form({
-    autoFiles: true,
-    uploadDir: "public/uploads"
-  });
+  var fileUpload = new multiparty.Form();
 
   fileUpload.parse(req, function(error, fields, files) {
     var data = {};
 
-    // data.title = fields.title;
-    // data.description = fields.description;
+    data.title = fields.title;
+    data.description = fields.description;
     // data.originalFileName = files.image[0].originalFilename;
     data.path = files.image[0].path;
     // data.fileName = files.image[0].path.split("\\")[2];
