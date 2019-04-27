@@ -10,6 +10,7 @@ var adminEventPost = function(request, response) {
   var uploadData = new multiparty.Form();
 
   uploadData.parse(request, function(error, field, files) {
+    console.log(field);
     var title = field.title;
     var content = field.content;
     var organizer = field.organizer;

@@ -14,8 +14,8 @@ var uploadPost = function(req, res) {
   fileUpload.parse(req, function(error, fields, files) {
     var data = {};
 
-    data.title = fields.title[0];
-    data.description = fields.description[0];
+    data.title = fields.title;
+    data.description = fields.description;
     data.originalFileName = files.image[0].originalFilename;
     data.path = files.image[0].path;
     data.fileName = files.image[0].path.split("\\")[2];
