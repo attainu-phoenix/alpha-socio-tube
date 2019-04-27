@@ -7,10 +7,7 @@ var adminEventPost = function(request, response) {
 
   //receive the upload data
 
-  var uploadData = new multiparty.Form({
-    autoFiles: true,
-    uploadDir: "public/eventImage"
-  });
+  var uploadData = new multiparty.Form();
 
   uploadData.parse(request, function(error, field, files) {
     var title = field.title;
