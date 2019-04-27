@@ -16,9 +16,9 @@ var uploadPost = function(req, res) {
 
     // data.title = fields.title;
     // data.description = fields.description;
-    data.originalFileName = files.image[0].originalFilename;
+    // data.originalFileName = files.image[0].originalFilename;
     data.path = files.image[0].path;
-    data.fileName = files.image[0].path.split("\\")[2];
+    // data.fileName = files.image[0].path.split("\\")[2];
     data.createdBy = req.session.user._id;
     data.approved = false;
 
