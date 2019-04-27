@@ -13,11 +13,11 @@ var adminEventPost = function(request, response) {
   });
 
   uploadData.parse(request, function(error, field, files) {
-    var title = field.title[0];
-    var content = field.content[0];
-    var organizer = field.organizer[0];
+    var title = field.title;
+    var content = field.content;
+    var organizer = field.organizer;
 
-    var Date = field.Date[0];
+    var Date = field.Date;
 
     var obj = {
       title: title,
@@ -26,11 +26,9 @@ var adminEventPost = function(request, response) {
       Date: Date
     };
 
-    obj.originalFileName = files.image[0].originalFilename;
-    obj.filename = files.image[0].path.split("\\")[2];
+    // obj.originalFileName = files.image[0].originalFilename;
+    // obj.filename = files.image[0].path.split("\\")[2];
     obj.path = files.image[0].path;
-
-    console.log("entered event post");
     cloudinary.uploader.upload(obj.path, { resource_type: "auto" }, function(
       error,
       result
