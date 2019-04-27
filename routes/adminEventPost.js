@@ -1,10 +1,9 @@
 "use strict";
+var multiparty = require("multiparty");
+var cloudinary = require("cloudinary").v2;
 
 var adminEventPost = function(request, response) {
   var DB = request.app.locals.DB;
-
-  var multiparty = require("multiparty");
-  var cloudinary = require("cloudinary").v2;
 
   //receive the upload data
 
